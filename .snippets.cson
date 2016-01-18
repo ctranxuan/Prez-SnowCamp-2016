@@ -1,0 +1,42 @@
+'*':
+  'Riot input hello':
+    'prefix': 'riotinput'
+    'body': """
+    <input name="helloInput" placeholder="Enter your name">
+    """
+  'Riot button':
+    'prefix': 'riotbutton'
+    'body': """
+    <button class="btn btn-success" onclick="{ sayHello }">{opts.title}</button>
+    """
+  'Riot messages count':
+    'prefix': 'riotmessagescount'
+    'body': """
+    <h4># {messages.length} messages</h4>
+    """
+  'Riot messages iter':
+    'prefix': 'riotmessagesiter'
+    'body': """
+    <ul>
+      <li each={ message in messages }>
+        { message }
+      </li>
+    </ul>
+    """
+  'Riot message if':
+    'prefix': 'riotmessageif'
+    'body': """
+    <span if={message === 'Hello Mr Spock'}>. Long live and prosper.</span>
+    """
+  'Riot this messages':
+    'prefix': 'riotmessagethis'
+    'body': """
+    this.messages = []
+    """
+  'Riot sayHello':
+    'prefix': 'riotsayhello'
+    'body': """
+    this.sayHello = (e) => {
+      this.messages.push('Hello ' + (this.helloInput.value))
+    }
+    """
