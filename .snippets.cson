@@ -52,3 +52,8 @@
     'body': """
     <h4 show = { hasMessages() }># {messages.length} messages</h4>
     """
+  'Riot class css':
+    'prefix': 'riotclasscss'
+    'body': """
+    <li each={ message, i in messages } class={ bg-success : i%2 === 0 }>
+    """
