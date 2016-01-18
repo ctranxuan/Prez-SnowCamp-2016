@@ -40,3 +40,15 @@
       this.messages.push('Hello ' + (this.helloInput.value))
     }
     """
+  'Riot hasMessage':
+    'prefix': 'riothasmessage'
+    'body': """
+    this.hasMessages = function() {
+      return this.messages.length > 0
+    }
+    """
+  'Riot show message':
+    'prefix': 'riotshowmessage'
+    'body': """
+    <h4 show = { hasMessages() }># {messages.length} messages</h4>
+    """
