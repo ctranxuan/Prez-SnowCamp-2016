@@ -57,3 +57,61 @@
     'body': """
     <li each={ message, i in messages } class={ bg-success : i%2 === 0 }>
     """
+  'Riot bus mount':
+    'prefix': 'riotmountbus'
+    'body': """
+    riot.mount('hello-world', { title: 'Hello', bus: bus });
+    """
+  'Riot bus sayhello':
+    'prefix': 'riotsayhellobus'
+    'body': """
+     this.sayHello = (e) => {
+       this.opts.bus.trigger('newMsgEvent', 'Hello ' + (this.helloInput.value))
+     }
+    """
+  'Riot messages count include':
+    'prefix': 'riotmessagescounttaginclude'
+    'body': """
+     <messages-count bus = { opts.bus }></messages-count>
+    """
+  'Riot messages count':
+    'prefix': 'riotmessagescounttag'
+    'body': """
+     <messages-count>
+       <h4 show = { hasMessages() }># {count} messages</h4>
+
+      var self = this
+      this.count = 0
+
+      this.opts.bus.on('newMsgEvent', function(msg) {
+        self.count = self.count + 1
+      })
+
+      this.hasMessages = function() {
+        return this.count > 0
+      }
+     </messages-count>
+    """
+  'Riot messages list include':
+    'prefix': 'riotmessageslisttaginclude'
+    'body': """
+     <messages-list bus = { opts.bus }></messages-list>
+    """
+  'Riot messages list':
+    'prefix': 'riotmessageslisttag'
+    'body': """
+     <messages-list>
+       <ul>
+         <li each={ message, i in messages } class={ bg-success : i%2 === 0 }>
+           { message }<span if={message === 'Hello Mr Spock'}>. Long live and prosper.</span>
+         </li>
+       </ul>
+
+       var self = this
+       this.messages = []
+
+       this.opts.bus.on('newMsgEvent', function(msg) {
+         self.messages.push(msg)
+       })
+     </messages-list>
+    """

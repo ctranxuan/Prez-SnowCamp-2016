@@ -11,11 +11,15 @@
 
     <!-- include riot.js -->
     <script type="riot/tag" src="hello-world.tag"></script>
+    <script type="riot/tag" src="messages-count.tag"></script>
+    <script type="riot/tag" src="messages-list.tag"></script>
     <script src="./node_modules/riot/riot+compiler.min.js"></script>
-
+    <script>
+    var bus = riot.observable();
+    </script>
     <!-- mount normally -->
     <script>
-      riot.mount('hello-world', { title: 'Hello' });
+      riot.mount('hello-world', { title: 'Hello', bus: bus });
     </script>
   </body>
 </html>
