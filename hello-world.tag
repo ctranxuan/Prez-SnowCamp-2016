@@ -5,7 +5,7 @@
  <h4># {messages.length} messages</h4>
  <ul>
    <li each={ message in messages }>
-     { message }
+     { message }<span if={message === 'Hello Mr Spock'}>. Long live and prosper.</span>
    </li>
  </ul>
 
