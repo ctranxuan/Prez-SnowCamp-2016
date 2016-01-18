@@ -14,12 +14,15 @@
     <script type="riot/tag" src="messages-count.tag"></script>
     <script type="riot/tag" src="messages-list.tag"></script>
     <script src="./node_modules/riot/riot+compiler.min.js"></script>
-    <script>
-    var bus = riot.observable();
-    </script>
+    <script src="eventbus.js"></script>
+
     <!-- mount normally -->
     <script>
-      riot.mount('hello-world', { title: 'Hello', bus: bus });
+      // var EventBusMixin = {
+      //   bus: riot.observable()
+      // };
+
+      riot.mount('hello-world', { title: 'Hello' });
     </script>
   </body>
 </html>

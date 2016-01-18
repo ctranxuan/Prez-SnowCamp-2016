@@ -3,10 +3,12 @@
  <input name="helloInput" placeholder="Enter your name">
  <button class="btn btn-success" onclick="{ sayHello }">{opts.title}</button>
 
- <messages-count bus = { opts.bus }></messages-count>
- <messages-list bus = { opts.bus }></messages-list>
+ <messages-count></messages-count>
+ <messages-list></messages-list>
+
+ this.mixin(EventBusMixin)
 
  this.sayHello = (e) => {
-   this.opts.bus.trigger('newMsgEvent', 'Hello ' + (this.helloInput.value))
+   this.bus.trigger('newMsgEvent', 'Hello ' + (this.helloInput.value))
  }
 </hello-world>

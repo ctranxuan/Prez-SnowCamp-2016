@@ -8,7 +8,9 @@
   var self = this
   this.messages = []
 
-  this.opts.bus.on('newMsgEvent', function(msg) {
+  this.mixin(EventBusMixin)
+
+  this.bus.on('newMsgEvent', function(msg) {
     self.messages.push(msg)
   })
 </messages-list>

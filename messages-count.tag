@@ -4,7 +4,9 @@
  var self = this
  this.count = 0
 
- this.opts.bus.on('newMsgEvent', function(msg) {
+ this.mixin(EventBusMixin)
+
+ this.bus.on('newMsgEvent', function(msg) {
    self.count = self.count + 1
  })
 

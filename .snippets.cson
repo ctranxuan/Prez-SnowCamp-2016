@@ -115,3 +115,15 @@
        })
      </messages-list>
     """
+  'Riot eventbus mixin':
+    'prefix': 'rioteventbusmixin'
+    'body': """
+      var EventBusMixin = {
+        bus: riot.observable()
+      };
+    """
+  'Riot this eventbus mixin':
+    'prefix': 'rioteventbusmixinthis'
+    'body': """
+      this.mixin(EventBusMixin)
+    """
